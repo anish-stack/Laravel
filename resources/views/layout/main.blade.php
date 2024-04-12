@@ -5,6 +5,7 @@
 <head>
     <base href="">
     @include('layout.head')
+    @yield('styles')
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -40,13 +41,19 @@
                     <!--begin::Footer-->
                     @include('layout.footer');
                     <!--end::Footer-->
-
+                    
+                    
                 </div>
                 <!--end::Wrapper-->
             </div>
             <!--end::Page-->
         </div>
-    <!--end::Main-->
+        <!--end::Main-->
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+		<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+        @yield('scripts')
     
 </body>
 
