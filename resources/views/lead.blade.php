@@ -8,7 +8,7 @@
         <h2 class="card-header"><i class="fa-regular fa-credit-card"></i> Laravel 11 Ajax CRUD Example - ItSolutionStuff.com</h2>
         <div class="card-body">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
-                <a class="btn btn-success btn-sm" href="javascript:void(0)" id="createNewProduct"> <i class="fa fa-plus"></i> Create New Product</a>
+                <a class="btn btn-success btn-sm" href="javascript:void(0)" id="createNewLead"> <i class="fa fa-plus"></i> Create New Lead</a>
             </div>
 
             <table class="table table-bordered data-table">
@@ -71,7 +71,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="modelHeading"><i class="fa-regular fa-eye"></i> Show Product</h4>
+                <h4 class="modal-title" id="modelHeading"><i class="fa-regular fa-eye"></i> Show Lead</h4>
             </div>
             <div class="modal-body">
                 <p><strong>Name:</strong> <span class="show-name"></span></p>
@@ -120,11 +120,11 @@
     Click to Button
     --------------------------------------------
     --------------------------------------------*/
-    $('#createNewProduct').click(function () {
+    $('#createNewLead').click(function () {
         $('#saveBtn').val("create-product");
         $('#product_id').val('');
         $('#productForm').trigger("reset");
-        $('#modelHeading').html("<i class='fa fa-plus'></i> Create New Product");
+        $('#modelHeading').html("<i class='fa fa-plus'></i> Create New Lead");
         $('#ajaxModel').modal('show');
     });
 
@@ -133,7 +133,7 @@
     Click to Edit Button
     --------------------------------------------
     --------------------------------------------*/
-    $('body').on('click', '.showProduct', function () {
+    $('body').on('click', '.showLead', function () {
       var product_id = $(this).data('id');
       $.get("{{ route('lead.index') }}" +'/' + product_id, function (data) {
           $('#showModel').modal('show');
@@ -147,10 +147,10 @@
     Click to Edit Button
     --------------------------------------------
     --------------------------------------------*/
-    $('body').on('click', '.editProduct', function () {
+    $('body').on('click', '.editLead', function () {
       var product_id = $(this).data('id');
       $.get("{{ route('lead.index') }}" +'/' + product_id +'/edit', function (data) {
-          $('#modelHeading').html("<i class='fa-regular fa-pen-to-square'></i> Edit Product");
+          $('#modelHeading').html("<i class='fa-regular fa-pen-to-square'></i> Edit Lead");
           $('#saveBtn').val("edit-user");
           $('#ajaxModel').modal('show');
           $('#product_id').val(data.id);
@@ -161,7 +161,7 @@
       
     /*------------------------------------------
     --------------------------------------------
-    Create Product Code
+    Create Lead Code
     --------------------------------------------
     --------------------------------------------*/
     $('#productForm').submit(function(e) {
@@ -196,10 +196,10 @@
       
     /*------------------------------------------
     --------------------------------------------
-    Delete Product Code
+    Delete Lead Code
     --------------------------------------------
     --------------------------------------------*/
-    $('body').on('click', '.deleteProduct', function () {
+    $('body').on('click', '.deleteLead', function () {
      
         var product_id = $(this).data("id");
         confirm("Are You sure want to delete?");
