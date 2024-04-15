@@ -49,7 +49,6 @@
                             <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" value="" maxlength="50">
                         </div>
                     </div>
-       
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Details:</label>
                         <div class="col-sm-12">

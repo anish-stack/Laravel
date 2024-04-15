@@ -29,7 +29,8 @@ class LeadController extends \App\Http\Controllers\Controller
                     ->make(true);
         }
           
-        return view('lead');
+        // return view('lead');
+        return view('create');
     }
          
     /**
