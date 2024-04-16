@@ -5,7 +5,7 @@
       
 <div class="container">
     <div class="card mt-5">
-        <h2 class="card-header"><i class="fa-regular fa-credit-card"></i> Laravel 11 Ajax CRUD Example - ItSolutionStuff.com</h2>
+        <h2 class="card-header"><i class="fa-regular fa-credit-card"></i> Master Data Table</h2>
         <div class="card-body">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
                 <a class="btn btn-success btn-sm" href="javascript:void(0)" id="createNewLead"> <i class="fa fa-plus"></i> Create New Lead</a>

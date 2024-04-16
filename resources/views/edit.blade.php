@@ -1,7 +1,6 @@
  <div class="col-md-6">
      <div class="card mt-5">
-         <h2 class="card-header"><i class="fa-regular fa-credit-card"></i> Laravel 11 Ajax CRUD Example -
-             ItSolutionStuff.com</h2>
+         <h2 class="card-header"><i class="fa-regular fa-credit-card"></i> Master Data Table</h2>
          <div class="card-body">
              <table class="table table-bordered data-table">
                  <thead>
