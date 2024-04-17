@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('call_out_comes', function (Blueprint $table) {
+        Schema::create('lead_document_types', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('call_out_comes');
+        Schema::dropIfExists('lead_document_types');
     }
 };

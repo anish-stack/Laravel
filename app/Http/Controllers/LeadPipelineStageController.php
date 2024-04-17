@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PipelineStageController extends Controller
+class LeadPipelineStageController extends Controller
 {
     //
 }

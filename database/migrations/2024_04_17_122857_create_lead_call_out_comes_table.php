@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pipeline_stages', function (Blueprint $table) {
+        Schema::create('lead_call_out_comes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pipeline_stages');
+        Schema::dropIfExists('lead_call_out_comes');
     }
 };

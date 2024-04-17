@@ -1,0 +1,15 @@
+leadactivityType - lat_Id,lat_name,lat_status
+
+LeadsourceType - lst_Od,lst_name,lst_status,
+
+LeadPipeline - lp_Id , lp_name, lp_status 
+
+leadstatus - ls_id ,ls_name, ls_status
+
+leadtype - lt_id,lt_name,lat_status
+
+callOutcome - co_id,co_name,co_status
+
+DocumentType - dt_id, dt_name, dt_status
+
+pipelinestage - ps_id , ps_name, ps_status ,lp_id (fk)
