@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lead_activity_types', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('lat_id');
+            $table->string('lat_name');
+            $table->string('lat_status');
+     
             $table->timestamps();
         });
     }

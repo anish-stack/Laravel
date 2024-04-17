@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lead_statuses', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('ls_id');
+            $table->string('ls_name');
+            $table->string('ls_status');           
             $table->timestamps();
         });
     }

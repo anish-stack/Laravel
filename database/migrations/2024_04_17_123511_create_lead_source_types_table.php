@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lead_sources', function (Blueprint $table) {
-            $table->id();
+        Schema::create('lead_source_types', function (Blueprint $table) {
+            $table->bigIncrements('lst_id');
+            $table->string('lst_name');
+            $table->string('lst_status');            
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lead_sources');
+        Schema::dropIfExists('lead_source_types');
     }
 };

@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lead_pipelines', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('lp_id');
+            $table->string('lp_name');
+            $table->string('lp_status');
+         
             $table->timestamps();
         });
     }

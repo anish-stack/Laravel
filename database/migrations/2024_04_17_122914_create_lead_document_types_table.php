@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lead_document_types', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('ldt_id');
+            $table->string('ldt_name');
+            $table->string('ldt_status');
+        
             $table->timestamps();
         });
     }
