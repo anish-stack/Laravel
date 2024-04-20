@@ -117,6 +117,12 @@
                           $('#product_id').val(data.lco_id);
                           $('#name').val(data.lco_name);
                           $('#detail').val(data.lco_status);
+
+                        if (data.lat_status === 'checked') {
+                            $('input[name="detail"]').prop('checked', true);
+                        } else {
+                            $('input[name="detail"]').prop('checked', false);
+                        }
                       })
                   });
 
