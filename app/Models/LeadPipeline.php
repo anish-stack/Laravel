@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class LeadPipeline extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'lp_id';
+    protected $table = 'lead_pipelines';
+    protected $guarded = [];
 }
