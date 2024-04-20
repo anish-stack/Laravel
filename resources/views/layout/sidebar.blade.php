@@ -260,26 +260,82 @@
 													<i class="menu-bullet menu-bullet-dot">
 														<span></span>
 													</i>
-													<span class="menu-text">Wizard</span>
+													<span class="menu-text">Master</span>
 													<i class="menu-arrow"></i>
 												</a>
 												<div class="menu-submenu">
 													<i class="menu-arrow"></i>
 													<ul class="menu-subnav">
 														<li class="menu-item" aria-haspopup="true">
-															<a href="custom/pages/wizard/wizard-1.html" class="menu-link">
+															<a href="{{ route('leadactivitytype.index')}}" class="menu-link">
 																<i class="menu-bullet menu-bullet-dot">
 																	<span></span>
 																</i>
-																<span class="menu-text">Wizard 1</span>
+																<span class="menu-text">Lead Activity Type</span>
 															</a>
 														</li>
+														<li class="menu-item" aria-haspopup="true">
+															<a href="{{ route('leadcall.index')}}" class="menu-link">
+																<i class="menu-bullet menu-bullet-dot">
+																	<span></span>
+																</i>
+																<span class="menu-text">Lead Call OutCome</span>
+															</a>
+														</li>														
+														<li class="menu-item" aria-haspopup="true">
+															<a href="{{ route('leaddocumenttype.index')}}" class="menu-link">
+																<i class="menu-bullet menu-bullet-dot">
+																	<span></span>
+																</i>
+																<span class="menu-text">Lead Document Type</span>
+															</a>
+														</li>														
+														<li class="menu-item" aria-haspopup="true">
+															<a href="{{ route('leadpipeline.index')}}" class="menu-link">
+																<i class="menu-bullet menu-bullet-dot">
+																	<span></span>
+																</i>
+																<span class="menu-text">Lead PipeLine</span>
+															</a>
+														</li>														
+														<li class="menu-item" aria-haspopup="true">
+															<a href="{{ route('leadpipelinestage.index')}}" class="menu-link">
+																<i class="menu-bullet menu-bullet-dot">
+																	<span></span>
+																</i>
+																<span class="menu-text">Lead PipeLine Stage</span>
+															</a>
+														</li>														
+														<li class="menu-item" aria-haspopup="true">
+															<a href="{{ route('leadsource.index')}}" class="menu-link">
+																<i class="menu-bullet menu-bullet-dot">
+																	<span></span>
+																</i>
+																<span class="menu-text">Lead Source</span>
+															</a>
+														</li>														
+														<li class="menu-item" aria-haspopup="true">
+															<a href="{{ route('leadstatus.index') }}" class="menu-link">
+																<i class="menu-bullet menu-bullet-dot">
+																	<span></span>
+																</i>
+																<span class="menu-text">Lead Status</span>
+															</a>
+														</li>														
+														<li class="menu-item" aria-haspopup="true">
+															<a href="{{ route('leadtype.index')}}" class="menu-link">
+																<i class="menu-bullet menu-bullet-dot">
+																	<span></span>
+																</i>
+																<span class="menu-text">Lead Type</span>
+															</a>
+														</li>														
 														<li class="menu-item" aria-haspopup="true">
 															<a href="custom/pages/wizard/wizard-2.html" class="menu-link">
 																<i class="menu-bullet menu-bullet-dot">
 																	<span></span>
 																</i>
-																<span class="menu-text">Wizard 2</span>
+																<span class="menu-text">Wizard</span>
 															</a>
 														</li>														
 													</ul>
