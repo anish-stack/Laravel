@@ -117,6 +117,12 @@
                           $('#product_id').val(data.ldt_id);
                           $('#name').val(data.ldt_name);
                           $('#detail').val(data.ldt_status);
+
+                          if (data.lat_status === 'checked') {
+                            $('input[name="detail"]').prop('checked', true);
+                        } else {
+                            $('input[name="detail"]').prop('checked', false);
+                        }s
                       })
                   });
 
@@ -173,6 +179,7 @@
                           processData: false,
                           success: (response) => {
                               $('#saveBtn').html('Submit');
+                              $('#product_id').val('');
                               $('#productForm').trigger("reset");
                               $('#ajaxModel').modal('hide');
                               table.draw();

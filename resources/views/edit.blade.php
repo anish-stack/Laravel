@@ -130,8 +130,9 @@
                           processData: false,
                           success: (response) => {
                               $('#saveBtn').html('Submit');
+                              $('#product_id').val('');
                               $('#productForm').trigger("reset");
-                              $('#ajaxModel').modal('hide');
+                              $('#ajaxModel').modal('hide');                            
                               table.draw();
                           },
                           error: function(response) {

@@ -117,6 +117,12 @@
                           $('#product_id').val(data.lp_id);
                           $('#name').val(data.lp_name);
                           $('#detail').val(data.lp_status);
+
+                          if (data.lat_status === 'checked') {
+                            $('input[name="detail"]').prop('checked', true);
+                        } else {
+                            $('input[name="detail"]').prop('checked', false);
+                        }
                       })
                   });
 
@@ -173,6 +179,7 @@
                           processData: false,
                           success: (response) => {
                               $('#saveBtn').html('Submit');
+                              $('#product_id').val('');
                               $('#productForm').trigger("reset");
                               $('#ajaxModel').modal('hide');
                               table.draw();

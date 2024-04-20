@@ -6,13 +6,12 @@
             <div class="col-md-6">
                 <div class="modal-body" id="ajaxModel">
                     <form id="productForm" name="productForm" class="form-horizontal">
-                        <input type="hidden" name="product_id" id="product_id">
+                        <input type="text" name="product_id" id="product_id">
                         @csrf
 
                         <div class="alert alert-danger print-error-msg" style="display:none">
                             <ul></ul>
                         </div>
-
                         <div class="form-group">
                             <label for="name" class="col-sm-2 control-label">Name:</label>
                             <div class="col-sm-12">

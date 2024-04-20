@@ -173,6 +173,7 @@
                           processData: false,
                           success: (response) => {
                               $('#saveBtn').html('Submit');
+                              $('#product_id').val('');
                               $('#productForm').trigger("reset");
                               $('#ajaxModel').modal('hide');
                               table.draw();

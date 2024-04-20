@@ -15,7 +15,7 @@ class LeadController extends \App\Http\Controllers\Controller
     {
         if ($request->ajax()) {
             // $data = Lead::query();
-            $data = Lead::get();
+            $data = Lead::get(); 
     
             return DataTables::of($data)
                     ->addIndexColumn()

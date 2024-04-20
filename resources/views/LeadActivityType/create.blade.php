@@ -18,8 +18,8 @@
                             <div class="col-3">
                                 <span class="switch">
                                     <label>
-                                        <input type="checkbox" checked="checked" name="detail"/>
-                                        {{-- <input type="checkbox" checked="checked" name="select"/> --}}
+                                        <input type="checkbox" checked="checked" name="detail"/>                                        
+                                       
                                         <span></span>
                                     </label>
                                 </span>
