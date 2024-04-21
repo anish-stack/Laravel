@@ -10,6 +10,7 @@ use App\Http\Controllers\LeadSourceTypeController;
 use App\Http\Controllers\LeadStatusController;
 use App\Http\Controllers\LeadTypeController;
 use App\Http\Controllers\LeadDocumentTypeController;
+use App\Http\Controllers\LeadAddController;
 
 
 Route::get('/', function () {
@@ -52,3 +53,7 @@ Route::post('leadstatus/update-status', [LeadStatusController::class, 'updateSta
 Route::resource('leadtype', LeadTypeController::class);
 Route::post('leadtype/update-status', [LeadTypeController::class, 'updateStatus'])->name('leadtype.updateStatus');
 
+// Lead Add
+
+Route::resource('leadadd', LeadAddController::class);
+Route::post('leadadd/update-status', [LeadAddController::class, 'updateStatus'])->name('leadadd.updateStatus');

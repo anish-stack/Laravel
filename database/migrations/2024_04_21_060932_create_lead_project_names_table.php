@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lead_project_names', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('lpn_id');
+            $table->string('lpn_name');
+            $table->string('lpn_status');  
             $table->timestamps();
         });
     }

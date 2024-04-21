@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('la_mobile');
             $table->string('la_address');
             $table->string('la_city');
-            $table->foreign('la_an_id')->references('lpn_id')->on('lead_project_names')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('la_as_id')->references('las_id')->on('lead_available_sizes')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('la_status');
+            $table->unsignedBigInteger('la_pn_id');
+            $table->unsignedBigInteger('la_as_id');
+            $table->string('la_status');           
             $table->timestamps();
         });
     }
