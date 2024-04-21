@@ -33,6 +33,54 @@
                                 <span id="name_error" class="error text-danger" style="display:none"></span>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Mobile:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter Name" value="" maxlength="50">
+                                <span id="name_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Address:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter Name" value="" maxlength="50">
+                                <span id="name_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">City:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter Name" value="" maxlength="50">
+                                <span id="name_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-4 control-label">Project Name:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter Name" value="" maxlength="50">
+                                <span id="name_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-4 control-label">Available Size:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter Name" value="" maxlength="50">
+                                <span id="name_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Remarks:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter Name" value="" maxlength="50">
+                                <span id="name_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
 
                         {{-- <div class="form-group">
                             <label class="col-sm-2 control-label">Details:</label>

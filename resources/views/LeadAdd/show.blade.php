@@ -63,29 +63,6 @@
                       ]
                   });                                  
 
-                  // Event delegation to handle click event on toggle buttons
-                    // $(document).on('click', '.status-toggle', function() {
-                    //     var id = $(this).closest('tr').find('td:first').text().trim(); // Assuming the first column is the ID
-                    //     var status = $(this).data('status'); // Get current status
-
-                    //     status = status ? 0 : 1;
-                    //     $.ajax({
-                    //         type: 'POST',
-                    //         url: "{{ route('leadadd.updateStatus') }}", // Replace 'updateStatus' with your actual route name
-                    //         data: { id: id, status: status },
-                    //         success: function(response) {
-                    //             // Assuming you want to update the status button appearance based on the response from the server
-                    //             // You can handle the response here if needed
-                    //              var newIcon = status ? '<i class="fa-solid fa-toggle-on"></i>' : '<i class="fa-solid fa-toggle-off"></i>';
-                    //             var newClass = status ? 'btn-success' : 'btn-secondary';
-                    //             $(this).html(newIcon).removeClass('btn-success btn-secondary').addClass(newClass).data('status', status);
-                    //         },
-                    //         error: function(xhr, status, error) {
-                    //             console.error(xhr.responseText);
-                    //         }
-                    //     });
-                    // });
-
                     $(document).on('change', '.status-toggle', function() {
                         var id = $(this).data('id');
                         var status = $(this).is(':checked') ? 1 : 0;
@@ -134,35 +111,6 @@
                   Create Lead Code
                   --------------------------------------------
                   --------------------------------------------*/
-                //   $('#productForm').submit(function(e) {
-                //       e.preventDefault();
-
-                //       let formData = new FormData(this);
-                //       $('#saveBtn').html('Sending...');
-
-                //       $.ajax({
-                //           type: 'POST',
-                //           url: "{{ route('leadadd.store') }}",
-                //           data: formData,
-                //           contentType: false,
-                //           processData: false,
-                //           success: (response) => {
-                //               $('#saveBtn').html('Submit');
-                //               $('#productForm').trigger("reset");
-                //               $('#ajaxModel').modal('hide');
-                //               table.draw();
-                //           },
-                //           error: function(response) {
-                //               $('#saveBtn').html('Submit');
-                //               $('#productForm').find(".print-error-msg").find("ul").html('');
-                //               $('#productForm').find(".print-error-msg").css('display', 'block');
-                //               $.each(response.responseJSON.errors, function(key, value) {
-                //                   $('#productForm').find(".print-error-msg").find("ul")
-                //                       .append('<li>' + value + '</li>');
-                //               });
-                //           }
-                //       });
-                //   });
 
                   $('#productForm').submit(function(e) {
                       e.preventDefault();
@@ -183,13 +131,7 @@
                               $('#productForm').trigger("reset");
                               $('#ajaxModel').modal('hide');
                               table.draw();
-                          },
-                        //   error: function(xhr,status,error) {
-                        //     console.error(xhr.responseText);
-                        //     var errors = JSON.parse(xhr.responseText); 
-                        //     $.each(errors,function(key,value){
-                        //         $("#"+key+"_error").text(value);
-                        //     });
+                          },                       
                         error: function(xhr, status, error) {
                             $('#saveBtn').html('Submit');
                             console.error(xhr.responseText);
