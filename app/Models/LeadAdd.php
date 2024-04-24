@@ -11,4 +11,14 @@ class LeadAdd extends Model
     protected $primaryKey = 'la_id';
     protected $table = 'lead_adds';
     protected $guarded = [];
+
+    public function project()
+    {
+        return $this->belongsTo(LeadProjectName::class, 'lpn_id');
+    }
+
+    public function availableSize()
+    {
+        return $this->belongsTo(LeadAvailableSize::class, 'las_id');
+    }
 }

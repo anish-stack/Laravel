@@ -331,7 +331,39 @@
 															</a>
 														</li>														
 														<li class="menu-item" aria-haspopup="true">
-															<a href="custom/pages/wizard/wizard-2.html" class="menu-link">
+															<a href="{{ route('Leadprojectname.index')}}" class="menu-link">
+																<i class="menu-bullet menu-bullet-dot">
+																	<span></span>
+																</i>
+																<span class="menu-text">Lead Project Name</span>
+															</a>
+														</li>														
+														<li class="menu-item" aria-haspopup="true">
+															<a href="{{ route('Leadavailablesize.index')}}" class="menu-link">
+																<i class="menu-bullet menu-bullet-dot">
+																	<span></span>
+																</i>
+																<span class="menu-text">Lead Available Size</span>
+															</a>
+														</li>														
+														<li class="menu-item" aria-haspopup="true">
+															<a href="{{ route('leadadd.create')}}" target="_blank" class="menu-link">
+																<i class="menu-bullet menu-bullet-dot">
+																	<span></span>
+																</i>
+																<span class="menu-text">Lead Add</span>
+															</a>
+														</li>														
+														<li class="menu-item" aria-haspopup="true">
+															<a href="{{ route('leadadd.index')}}" target="_blank" class="menu-link">
+																<i class="menu-bullet menu-bullet-dot">
+																	<span></span>
+																</i>
+																<span class="menu-text">Lead Manage</span>
+															</a>
+														</li>														
+														<li class="menu-item" aria-haspopup="true">
+															<a href="custom/pages/wizard/wizard-2.html"  class="menu-link">
 																<i class="menu-bullet menu-bullet-dot">
 																	<span></span>
 																</i>

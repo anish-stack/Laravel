@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class LeadAvailableSize extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'las_id';
+    protected $table = 'lead_available_sizes';
+    protected $guarded = [];
 }

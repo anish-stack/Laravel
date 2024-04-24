@@ -75,7 +75,6 @@
                       $('#modelHeading').html("<i class='fa fa-plus'></i> Create New Lead");
                       $('#ajaxModel').modal('show');
                   });
-
                   /*------------------------------------------
                   --------------------------------------------
                   Click to Show Button
@@ -89,7 +88,6 @@
                           $('.show-detail').text(data.detail);
                       })
                   });
-
                   /*------------------------------------------
                   --------------------------------------------
                   Click to Edit Button

@@ -1,0 +1,256 @@
+@extends('layout.main')
+
+@section('main-container')
+    <div class="container">       
+                <div class="modal-body" id="ajaxModel">
+                    <h4>New Lead Add</h4>
+                   
+                    <form id="productForm" name="productForm" class="form-horizontal" >
+                        <div class="card-body">
+                        <input type="hidden" name="product_id" id="product_id">                      
+                        @csrf
+                       
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">Status</label>
+                            <div class="col-3">
+                                <span class="switch">
+                                    <label>
+                                        <input type="checkbox" checked="checked" name="detail" />                                        
+                                       
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </div>		
+                        </div>	                       
+                        <div class="form-group">
+                            <label for="source" class="col-sm-4 control-label">Lead Source:</label>
+                            <div class="col-sm-12">
+                                <select class="form-control" id="source" name="source">
+                                    <option value="" selected disabled>Select Source</option>
+                                    @foreach($sources as $sourceId => $sourceName)
+                                        <option value="{{ $sourceId }}">{{ $sourceName }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>	                        
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Name:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter Name" value="" maxlength="50">
+                                <span id="name_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Mobile:</label>
+                            <div class="col-sm-12">
+                                <input type="number" class="form-control" id="mobile" name="mobile"
+                                    placeholder="Enter Mobile" value="" maxlength="50">
+                                <span id="mobile_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Address:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="address" name="address"
+                                    placeholder="Enter Address" value="" maxlength="50">
+                                <span id="address_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">City:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="city" name="city"
+                                    placeholder="Enter Name" value="" maxlength="50">
+                                <span id="city_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="project_name" class="col-sm-4 control-label">Project Name:</label>
+                            <div class="col-sm-12">
+                                <select class="form-control" id="project_name" name="project_name">
+                                    <option value="" selected disabled>Select Project Name</option>
+                                    @foreach($projects as $projectId => $projectName)
+                                        <option value="{{ $projectId }}">{{ $projectName }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="a_size" class="col-sm-4 control-label">Available Size:</label>
+                            <div class="col-sm-12">
+                                <select class="form-control" id="a_size" name="a_size">
+                                    <option value="" selected disabled>Select Available Size</option>
+                                    @foreach($sizes as $sizeId => $size)
+                                        <option value="{{ $sizeId }}">{{ $size }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="remark-name" class="col-sm-2 control-label">Remarks:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="remark" name="remark"
+                                    placeholder="Enter Remarks" value="" maxlength="50">
+                                <span id="remark_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>                       
+
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success mt-2" id="saveBtn" value="create"><i
+                                    class="fa fa-save"></i> Submit
+                            </button>
+                        </div>
+                    </div>
+                    </form>
+                </div>            
+    </div>
+
+    <!-- edit code -->
+     <form id="productForm" name="productForm" class="form-horizontal">
+                   
+                       <input type="text" name="product_id" id="product_id" value="{{ $lead->la_id ? $lead->la_id : '' }}">
+                        @csrf
+
+                        <div class="alert alert-danger print-error-msg" style="display:none">
+                            <ul></ul>
+                        </div>                        
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">Status</label>
+                            <div class="col-3">
+                                <span class="switch">
+                                    <label>
+                                        {{-- <input type="checkbox" checked="checked" name="detail" />      
+                                                                          --}}                                                                           
+                                        <input type="checkbox" {{ $lead->la_status ? 'checked' : '' }} name="detail" />                                        
+                                       
+                                        <span></span>
+                                    </label>
+                                </span>
+                            </div>		
+                        </div>	
+                        <div class="form-group">
+                            <label for="source" class="col-sm-4 control-label">Lead Source:</label>
+                            <div class="col-sm-12">
+                                <select class="form-control" id="source" name="source">
+                                    <option value="" selected disabled>Select Source</option>
+                                    @foreach($sources as $sourceId => $sourceName)                                        
+                                         <option value="{{ $sourceId }}" {{ $lead->la_source == $sourceId ? 'selected' : '' }}>{{ $sourceName }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>	                        
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Name:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter Name" value="{{ $lead->la_customerNname }}" maxlength="50" >
+                                <span id="name_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Mobile:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="mobile" name="mobile"
+                                    placeholder="Enter Mobile" value="{{ $lead->la_mobile }}" maxlength="50">
+                                <span id="mobile_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">Address:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="address" name="address"
+                                    placeholder="Enter Address" value="{{ $lead->la_address }}" maxlength="50">
+                                <span id="address_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">City:</label>
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="city" name="city"
+                                    placeholder="Enter Name" value="{{ $lead->la_city }}" maxlength="50">
+                                <span id="city_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="project_name" class="col-sm-4 control-label">Project Name:</label>
+                            <div class="col-sm-12">
+                                <select class="form-control" id="project_name" name="project_name" value="{{ $lead->la_pn_id }}">
+                                    <option value="" selected disabled>Select Project Name</option>
+                                    @foreach($projects as $projectId => $projectName)
+                                        <option value="{{ $projectId }}" {{ $lead->la_source == $projectId ? 'selected' : '' }}>{{ $projectName }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="a_size" class="col-sm-4 control-label">Available Size:</label>
+                            <div class="col-sm-12">
+                                <select class="form-control" id="a_size" name="a_size" value="{{ $lead->la_as_id }}">
+                                    <option value="" selected disabled>Select Available Size</option>
+                                    @foreach($sizes as $sizeId => $size)
+                                        <option value="{{ $sizeId }}" {{ $lead->la_source == $sizeId ? 'selected' : '' }}>{{ $size }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="remark-name" class="col-sm-2 control-label">Remarks:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="remark" name="remark"
+                                    placeholder="Enter Remarks" value="{{ $lead->la_remark }}" maxlength="50">
+                                <span id="remark_error" class="error text-danger" style="display:none"></span>
+                            </div>
+                        </div>                  
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-success mt-2" id="saveBtn" value="create"><i
+                                    class="fa fa-save"></i> Submit
+                            </button>
+                        </div>
+                    </form>
+@endsection
+
+@section('scripts')
+<script>
+    
+                  $('#productForm').submit(function(e) {
+                      e.preventDefault();
+
+                      let formData = new FormData(this);
+                      $('#saveBtn').html('Sending...');
+                      $('.error').text('');
+
+                      $.ajax({
+                          type: 'POST',
+                          url: "{{ route('leadadd.store') }}",
+                          data: formData,
+                          contentType: false,
+                          processData: false,
+                          success: (response) => {
+                              $('#saveBtn').html('Submit');
+                              $('#product_id').val('');
+                              $('#productForm').trigger("reset");
+                              $('#ajaxModel').modal('hide');
+                              window.location.href = "{{ route('leadadd.index') }}";
+                            //   table.draw();
+                          },                       
+                        error: function(xhr, status, error) {
+                            $('#saveBtn').html('Submit');
+                            console.error(xhr.responseText);
+                            var response = JSON.parse(xhr.responseText);
+                            if (response.errors) {
+                                $.each(response.errors, function(key, value) {
+                                    $("#" + key + "_error").text(value[0]).show();
+                                });
+                            }
+                          }
+                      });
+                  });
+
+
+</script>
+@endsection
+        
+        

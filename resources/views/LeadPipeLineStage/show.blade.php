@@ -118,7 +118,7 @@
                           $('#name').val(data.lat_name);
                           $('#detail').val(data.lat_status);
 
-                          if (data.lat_status === 'checked') {
+                          if (data.lat_status === '1') {
                             $('input[name="detail"]').prop('checked', true);
                         } else {
                             $('input[name="detail"]').prop('checked', false);

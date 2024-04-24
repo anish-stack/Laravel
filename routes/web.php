@@ -11,6 +11,8 @@ use App\Http\Controllers\LeadStatusController;
 use App\Http\Controllers\LeadTypeController;
 use App\Http\Controllers\LeadDocumentTypeController;
 use App\Http\Controllers\LeadAddController;
+use App\Http\Controllers\LeadAvailableSizeController;
+use App\Http\Controllers\LeadProjectNameController;
 
 
 Route::get('/', function () {
@@ -53,7 +55,18 @@ Route::post('leadstatus/update-status', [LeadStatusController::class, 'updateSta
 Route::resource('leadtype', LeadTypeController::class);
 Route::post('leadtype/update-status', [LeadTypeController::class, 'updateStatus'])->name('leadtype.updateStatus');
 
+// lead Available Size
+Route::resource('Leadavailablesize', LeadAvailableSizeController::class);
+Route::post('Leadavailablesize/update-status', [LeadAvailableSizeController::class, 'updateStatus'])->name('Leadavailablesize.updateStatus');
+// lead type
+Route::resource('Leadprojectname', LeadProjectNameController::class);
+Route::post('Leadprojectname/update-status', [LeadProjectNameController::class, 'updateStatus'])->name('Leadprojectname.updateStatus');
+
 // Lead Add
 
 Route::resource('leadadd', LeadAddController::class);
 Route::post('leadadd/update-status', [LeadAddController::class, 'updateStatus'])->name('leadadd.updateStatus');
+Route::get('leadadd/create', [LeadAddController::class, 'createLead'])->name('leadadd.create');
+Route::get('leadadd/edit/{id}', [LeadAddController::class, 'edit'])->name('leadadd.edit');
+
+

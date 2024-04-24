@@ -1,12 +1,12 @@
  <div class="col-md-6">
      <div class="card mt-5">
-         <h2 class="card-header"><i class="fa-regular fa-credit-card"></i> Lead Soucre</h2>
+         <h2 class="card-header"><i class="fa-regular fa-credit-card"></i> Leaad Activity Type</h2>
          <div class="card-body">
              <table class="table table-bordered data-table">
                  <thead>
                      <tr>
                          <th width="60px">No</th>
-                         <th>Name</th>
+                         <th>Project Name</th>
                          <th>Status</th>
                          <th width="280px">Action</th>
                      </tr>
@@ -41,18 +41,18 @@
                   var table = $('.data-table').DataTable({
                       processing: true,
                       serverSide: true,
-                      ajax: "{{ route('leadsource.index') }}",
+                      ajax: "{{ route('Leadprojectname.index') }}",
                       columns: [{
                               data: 'DT_RowIndex',
                               name: 'DT_RowIndex'
                           },
                           {
-                              data: 'lst_name',
-                              name: 'lst_name'
+                              data: 'lpn_name',
+                              name: 'lpn_name'
                           },
                           {
-                              data: 'lst_status',
-                              name: 'lst_status'
+                              data: 'lpn_status',
+                              name: 'lpn_status'
                           },
                           {
                               data: 'action',
@@ -71,7 +71,7 @@
                     //     status = status ? 0 : 1;
                     //     $.ajax({
                     //         type: 'POST',
-                    //         url: "{{ route('leadcall.updateStatus') }}", // Replace 'updateStatus' with your actual route name
+                    //         url: "{{ route('Leadprojectname.updateStatus') }}", // Replace 'updateStatus' with your actual route name
                     //         data: { id: id, status: status },
                     //         success: function(response) {
                     //             // Assuming you want to update the status button appearance based on the response from the server
@@ -92,7 +92,7 @@
 
                         $.ajax({
                             type: 'POST',
-                            url: "{{ route('leadsource.updateStatus') }}",
+                            url: "{{ route('Leadprojectname.updateStatus') }}",
                             data: { id: id, status: status },
                             success: function(response) {
                                 // Handle success response if needed
@@ -110,25 +110,23 @@
                   --------------------------------------------*/
                   $('body').on('click', '.editLead', function() {
                       var product_id = $(this).data('id');                      
-                      $.get("{{ route('leadsource.index') }}" + '/' + product_id + '/edit', function(data) {
+                      $.get("{{ route('Leadprojectname.index') }}" + '/' + product_id + '/edit', function(data) {
                           $('#modelHeading').html(
                           "<i class='fa-regular fa-pen-to-square'></i> Edit Lead");
                           $('#saveBtn').val("edit-user");                       
-                          $('#product_id').val(data.lst_id);
-                          $('#name').val(data.lst_name);
-                          $('#detail').val(data.lst_status);
+                          $('#product_id').val(data.lpn_id);
+                          $('#name').val(data.lpn_name);
+                          $('#detail').val(data.lpn_status);
 
-                          if (data.lat_status === '1') {
-                            $('input[name="detail"]').prop('checked', true);
-                        } else {
-                            $('input[name="detail"]').prop('checked', false);
-                        }
+                           if (data.lpn_status === '1') {
+                                $('input[name="detail"]').prop('checked', true);
+                            } else {
+                                $('input[name="detail"]').prop('checked', false);
+                            }
                       })
                   });
 
-                  // Assume you have an edit button with class "editBtn"
-                   
-
+                  // Assume you have an edit button with class "editBtn"                   
                   /*------------------------------------------
                   --------------------------------------------
                   Create Lead Code
@@ -142,7 +140,7 @@
 
                 //       $.ajax({
                 //           type: 'POST',
-                //           url: "{{ route('leadcall.store') }}",
+                //           url: "{{ route('Leadprojectname.store') }}",
                 //           data: formData,
                 //           contentType: false,
                 //           processData: false,
@@ -173,7 +171,7 @@
 
                       $.ajax({
                           type: 'POST',
-                          url: "{{ route('leadsource.store') }}",
+                          url: "{{ route('Leadprojectname.store') }}",
                           data: formData,
                           contentType: false,
                           processData: false,
@@ -215,7 +213,7 @@
 
                       $.ajax({
                           type: "DELETE",
-                          url: "{{ route('leadsource.store') }}" + '/' + product_id,
+                          url: "{{ route('Leadprojectname.store') }}" + '/' + product_id,
                           success: function(data) {
                               table.draw();
                           },

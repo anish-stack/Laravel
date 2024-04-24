@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h4>Create Lead PipeLine</h4>
+                <h4>Create Lead Project Name</h4>
                 <div class="modal-body" id="ajaxModel">
                     <form id="productForm" name="productForm" class="form-horizontal">
                         <input type="hidden" name="product_id" id="product_id">
@@ -19,13 +19,14 @@
                                 <span class="switch">
                                     <label>
                                         <input type="checkbox" checked="checked" name="detail"/>                                        
+                                       
                                         <span></span>
                                     </label>
                                 </span>
                             </div>		
                         </div>		                        
                         <div class="form-group">
-                            <label for="name" class="col-sm-2 control-label">Name:</label>
+                            <label for="name" class="col-sm-2 control-label">Project Name:</label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="name" name="name"
                                     placeholder="Enter Name" value="" maxlength="50">
@@ -49,7 +50,7 @@
                     </form>
                 </div>
             </div>
-            @include('LeadPipeLine.show')
+            @include('LeadProjectName.show')
         </div>
     </div>
 @endsection
