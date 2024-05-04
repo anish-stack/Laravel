@@ -36,10 +36,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/userprofile', [ProfileController::class, 'userprofile'])->name('userprofile');
+    Route::get('/changepasswordpage', [ProfileController::class, 'changepasswordpage'])->name('changepasswordpage');
+    Route::get('/addstaffpage', [ProfileController::class, 'addstaffpage'])->name('addstaffpage');
+    Route::get('/stafflist', [ProfileController::class, 'stafflist'])->name('stafflist');
+    Route::post('/addstaffsubmit', [ProfileController::class, 'addstaffsubmit'])->name('addstaffsubmit');
+    Route::get('/staffedit/{id}', [ProfileController::class, 'staffedit'])->name('staffedit');
+    Route::post('/updatestaff', [ProfileController::class, 'updatestaff'])->name('updatestaff');
+    Route::get('/staffdelete/{id}', [ProfileController::class, 'staffdelete'])->name('staffdelete');
 });
-
-
-
 
 
 Route::resource('lead', LeadController::class);

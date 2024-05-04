@@ -17,12 +17,12 @@ class HomeController extends Controller
             // die($usertype);
             if($usertype=='user')
             {
-                return view('dashboard');
+                return view('welcome');
             }
 
             else if($usertype=='admin')
             {
-                return view('admin');
+                return view('welcome');
             }
             else{
                 return redirect->back();
