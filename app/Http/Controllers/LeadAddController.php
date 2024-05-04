@@ -9,15 +9,17 @@ use App\Http\Controllers\LeadAddController;
 use App\Models\LeadAdd;
 use App\Models\LeadProjectName;
 use App\Models\LeadAvailableSize;
-use App\Models\LeadSourceType;
+use App\Models\LeadSourceType; 
+use App\Models\LeadStatus;
 
 
 class LeadAddController extends Controller
 {   
     public function index(Request $request)
     {
-// $data = LeadAdd::with('project')->get();
-// dd($data);
+    // $data = LeadAdd::with('project')->get();
+    // dd($data);
+
         if ($request->ajax()) {
             // $data = LeadAdd::get(); 
             // $data = LeadAdd::with(['LeadProjectName', 'LeadAvailableSize'])->get();  
@@ -41,11 +43,14 @@ class LeadAddController extends Controller
 
                     ->addColumn('action', function($row){
                         //    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->la_id.'" data-original-title="View" class="me-1 btn btn-info btn-sm showLead"><i class="fa-regular fa-eye"></i> View</a>';
-                        //    $btn = '<a href="{{ route('leadadd.edit', ['id' => $row->la_id]) }}" data-toggle="tooltip"  data-id="'.$row->la_id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editLead"><i class="fa-regular fa-pen-to-square"></i> Edit</a>';
-                               $btn = '<a href="' . route('leadadd.edit', ['id' => $row->la_id]) . '" data-toggle="tooltip"  data-id="' . $row->la_id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editLead"><i class="fa-regular fa-pen-to-square"></i> Edit</a>';
-
-
-                           $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->la_id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteLead"><i class="fa-solid fa-trash"></i> Delete</a>';
+                        //    $btn = '<button type="button" class="btn btn-primary open-modal" data-toggle="modal" data-id="'.$row->la_id.'" data-target="#examplModal"><i class="fa-regular fa-eye"></i></button>';
+                        // $btn = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-id="' . $row->la_id . '">Open Modal</button>';
+                        $btn = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-id="' . $row->la_id . '" onclick="openModal(this)">Open Modal</button>';
+                        // $btn = '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-id="' . $row->la_id . '">Open Modal</button>';
+                        // $btn = '<button type="button" class="btn btn-primary open-modal"  data-id="' . $row->la_id . '" >Open Modal</button>';
+                       
+                           $btn .= '<a href="' . route('leadadd.edit', ['id' => $row->la_id]) . '" data-toggle="tooltip"  data-id="' . $row->la_id . '" data-original-title="Edit" class="edit btn btn-primary btn-sm editLead"><i class="fa-regular fa-pen-to-square"></i> </a>';
+                           $btn .= ' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->la_id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteLead"><i class="fa-solid fa-trash"></i> </a>';
                             return $btn;
                     })                    
                     ->rawColumns(['la_status', 'action'])
@@ -53,8 +58,8 @@ class LeadAddController extends Controller
         }          
         $projects = LeadProjectName::pluck('lpn_name', 'lpn_id');
         $sizes = LeadAvailableSize::pluck('las_name', 'las_id');
-
-        return view('LeadAdd.show', compact('projects', 'sizes'));
+        $status = LeadStatus::pluck('ls_name', 'ls_id');
+        return view('LeadAdd.show', compact('projects', 'sizes','status'));
         // return view('LeadAdd.create', compact('projects', 'sizes'));
     }
 

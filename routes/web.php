@@ -13,11 +13,16 @@ use App\Http\Controllers\LeadDocumentTypeController;
 use App\Http\Controllers\LeadAddController;
 use App\Http\Controllers\LeadAvailableSizeController;
 use App\Http\Controllers\LeadProjectNameController;
+use App\Http\Controllers\LeadUpdateRecordController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('pop', function () {
+    return view('pop');
+});
+
 
 Route::resource('lead', LeadController::class);
 
@@ -68,5 +73,11 @@ Route::resource('leadadd', LeadAddController::class);
 Route::post('leadadd/update-status', [LeadAddController::class, 'updateStatus'])->name('leadadd.updateStatus');
 Route::get('leadadd/create', [LeadAddController::class, 'createLead'])->name('leadadd.create');
 Route::get('leadadd/edit/{id}', [LeadAddController::class, 'edit'])->name('leadadd.edit');
+
+// pop data 
+Route::resource('leadpopdata', LeadUpdateRecordController::class);
+Route::post('lead/store-form-data', [LeadUpdateRecordController::class, 'store'])->name('storeFormData');
+// Route::post('/store-form-data', 'LeadUpdateRecordController@store')->name('storeFormData');
+
 
 
