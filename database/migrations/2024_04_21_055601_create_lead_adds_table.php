@@ -17,10 +17,27 @@ return new class extends Migration
             $table->string('la_mobile');
             $table->string('la_address');
             $table->string('la_city');
+            $table->unsignedBigInteger('la_user_id')->nullable();
             $table->unsignedBigInteger('la_pn_id');
             $table->unsignedBigInteger('la_as_id');
             $table->string('la_status');           
             $table->timestamps();
+
+            $table->foreign('la_pn_id')
+                ->references('lpn_id')->on('lead_project_names')
+                ->onDelete('cascade') // On delete cascade
+                ->onUpdate('cascade'); // On update cascade
+
+            // Add foreign key constraint for la_pn_id column
+            $table->foreign('la_as_id')
+                ->references('las_id')->on('lead_available_sizes')
+                ->onDelete('cascade') // On delete cascade
+                ->onUpdate('cascade'); // On update cascade
+
+            $table->foreign('la_user_id') // corrected to 'la_user_id'
+            ->references('id')->on('users')
+            ->onDelete('cascade') // On delete cascade
+            ->onUpdate('cascade'); // On update cascade
         });
     }
 

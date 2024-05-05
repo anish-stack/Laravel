@@ -2,51 +2,50 @@
 
 @section('main-container')
     {{-- <div class="col-md-6"> --}}
-        <div class="card mt-5">        
-        {{-- <h2 class="card-header">
-            <i class="fa-regular fa-credit-card"></i> Manage Lead            
-        </h2> --}}
-        <div class="row card-header col-md-12">
-            {{-- <a href="#" class="btn btn-success font-weight-bold btn-pill">Success</a> --}}
-            
-
-            <div class="col-md-6 ">
-
-                <h2 class="">
-                    <i class="fa-regular fa-credit-card"></i> Manage Lead
-                </h2>
-            </div>
-            <div class="col-md-5" style="display: flex; justify-content: flex-end;">
-                <a href="{{ route('leadadd.create')}}" class="btn btn-success font-weight-bold btn-pill">Create Lead</a>
-            </div>
-            {{-- <div class="col-md-6 text-right">
-                <h3><a href="{{ route('leadadd.create')}}" style="text-decoration: none;
-        color: black;">Create Lead</a></h3>
-            
-            </div> --}}
-        </div>
-
+    <div class="card mt-5">
+        <h2 class="card-header"><i class="fa-regular fa-credit-card"></i> Assign Lead</h2>
         <div class="card-body">
-            <table class="table table-bordered data-table">
-                <thead>
-                    <tr>
-                        <th width="60px">No</th>
-                        <th>Last Update</th>
-                        <th>Meeting Date</th>
-                        <th>Customer Name</th>
-                        <th>Mobile</th>
-                        <th>address</th>
-                        <th>city</th>
-                        <th>Project Name</th>
-                        <th>Size</th>
-                        <th>Remark</th>
-                        <th>Status</th>
-                        <th width="280px">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <!-- Add user selection dropdown and assign button -->
+<!-- Assign to User dropdown and Assign Selected Leads button -->
+<div id="assignSection" style="display: none;">
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="userSelect">Assign to User:</label>
+            <select class="form-control " id="userSelect">
+                <option value="">Select User</option>
+                @foreach($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
+            </select>
+        </div>
+         <div class="form-group col-md-2">
+            <label for="userSelect"></label>
+             <button id="assignBtn" class="btn btn-info form-control">Assign Leads</button>
+         </div>
+    </div>
+</div>
+
+
+<!-- Add DataTable HTML -->
+<table class="table table-bordered data-table">
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="selectAllLeads">#</th>
+            <th width="60px">No</th>
+            <th>Lead Date</th>
+            <th>Update At</th>
+            <th>Customer Name</th>
+            <th>Mobile</th>
+            <th>address</th>
+            <th>city</th>
+            <th>Project Name</th>
+            <th>Size</th>
+            <th>Remark</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
         </div>
     </div>
 
@@ -67,7 +66,7 @@
                         <div class="mb-2">
                             <div class="form-group row">
                                 <div class="col-lg-5">
-                                    <input type="hidden" id="dataIdInput" name="lead_id" value="">
+                                    <input type="text" id="dataIdInput" name="lead_id" value="">
                                     <label>Remarks:</label>
                                     <input type="text" class="form-control" name="remark" placeholder=""
                                         value="" />
@@ -78,7 +77,7 @@
                                     <select name="status" id="status" class="form-control">
                                         <option value="">Select status</option>
                                         @foreach ($status as $key => $value)
-                                            <option value="{{ $value }}"
+                                            <option value="{{ $key }}"
                                                 {{ old('status') == $key ? 'selected' : '' }}>{{ $value }}
                                             </option>
                                         @endforeach
@@ -111,8 +110,8 @@
                             <th width="60px">No</th>
                             <th>Lead Update Date</th>
                             <th>Remark</th>
-                            <th>status</th>
                             <th>Update By</th>
+                            <th>status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -148,64 +147,95 @@
             --------------------------------------------*/
 
 
-            var table = $('.data-table').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: "{{ route('leadadd.index') }}",
-                columns: [{
-                        data: 'DT_RowIndex',
-                        name: 'DT_RowIndex'
-                    },
-                    {
-                        data: 'la_last_update', // Access the available size through the nested relationship
-                        name: 'la_last_update', // Use dot notation to access nested relationship
-                    },
-                    {
-                        data: 'la_meeting_date', // Access the available size through the nested relationship
-                        name: 'la_meeting_date', // Use dot notation to access nested relationship
-                    },
-                    {
-                        data: 'la_customerNname',
-                        name: 'la_customerNname'
-                    },
-                    {
-                        data: 'la_mobile',
-                        name: 'la_mobile'
-                    },
-                    {
-                        data: 'la_address',
-                        name: 'la_address'
-                    },
-                    {
-                        data: 'la_city',
-                        name: 'la_city'
-                    },
-                    // Include project name
-                    {
-                        data: 'lpn_name', // Access the project name through the nested relationship
-                        name: 'lpn_name', // Use dot notation to access nested relationship
-                    },
-                    // Include available size
-                    {
-                        data: 'las_name', // Access the available size through the nested relationship
-                        name: 'las_name', // Use dot notation to access nested relationship
-                    },
-                    {
-                        data: 'la_remark', // Access the available size through the nested relationship
-                        name: 'la_remark', // Use dot notation to access nested relationship
-                    },
-                    {
-                        data: 'la_status',
-                        name: 'la_status'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false
-                    },
-                ]
-            });
+    // Modify DataTable initialization to include checkbox column
+var table = $('.data-table').DataTable({
+    processing: true,
+    serverSide: true,
+    ajax: "{{ route('leadassign.index') }}",
+   columns: [
+        { 
+            data: null,
+             render: function (data, type, row) {
+                return '<input type="checkbox" class="lead-checkbox" value="' + row.la_id + '">';
+            },
+            orderable: false,
+            searchable: false
+        },
+        { data: 'DT_RowIndex', name: 'DT_RowIndex' },
+        { data: 'created_at', name: 'created_at' },
+        { data: 'updated_at', name: 'updated_at' },
+        { data: 'la_customerNname', name: 'la_customerNname' },
+        { data: 'la_mobile', name: 'la_mobile' },
+        { data: 'la_address', name: 'la_address' },
+        { data: 'la_city', name: 'la_city' },
+        { data: 'lpn_name', name: 'lpn_name' },
+        { data: 'las_name', name: 'las_name' },
+        { data: 'la_remark', name: 'la_remark', orderable: false, searchable: false }
+    ]
+});
+
+// Add event listener for lead assignment
+$('#assignBtn').click(function() {
+    var leadIds = [];
+
+    // Get IDs of selected leads
+    $('.lead-checkbox:checked').each(function() {
+        leadIds.push($(this).val());
+    });
+
+    var userId = $('#userSelect').val(); // Get selected user ID
+
+    // Send AJAX request to assign leads
+    $.ajax({
+        type: 'POST',
+        url: '{{ route("assignLead.assignLead") }}',
+        data: {
+            '_token': '{{ csrf_token() }}',
+            'lead_ids': leadIds,
+            'user_id': userId
+        },
+        success: function(response) {
+            // Reload DataTable after successful assignment
+            table.ajax.reload();
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
+});
+
+// Function to toggle all displayed lead checkboxes
+$('#selectAllLeads').change(function() {
+    var isChecked = $(this).prop('checked');
+    $('.lead-checkbox').prop('checked', isChecked);
+    toggleAssignSectionVisibility();
+});
+
+// Function to check if any checkbox is checked
+function anyCheckboxChecked() {
+    return $('.lead-checkbox:checked').length > 0;
+}
+
+// Show/hide the "Assign to User" dropdown and the "Assign Selected Leads" button based on checkbox state
+function toggleAssignSectionVisibility() {
+    if (anyCheckboxChecked()) {
+        $('#assignSection').show();
+    } else {
+        $('#assignSection').hide();
+    }
+}
+
+// Show the "Assign to User" dropdown and the "Assign Selected Leads" button when any checkbox is clicked
+$('.data-table').on('change', '.lead-checkbox', function() {
+    toggleAssignSectionVisibility();
+});
+
+// Hide the "Assign to User" dropdown and the "Assign Selected Leads" button when all checkboxes are unchecked
+$('#assignBtn').click(function() {
+    $('.lead-checkbox').prop('checked', false);
+    $('#selectAllLeads').prop('checked', false);
+    $('#assignSection').hide();
+});
 
 
             $(document).on('change', '.status-toggle', function() {
@@ -325,13 +355,10 @@
 
         $(document).ready(function() {
             // alert("hh");
-            var table = $('.data-table').DataTable();
             $('#closepop').click(function() {
                 // Hide the modal
                 $('#exampleModal').modal('hide');
-                table.ajax.reload();
             });
-
             console.log("Document is ready.");
             openModalz(); // Call the function after the document is ready
 
@@ -361,15 +388,6 @@
             $('#dataIdInput').val(dataId);
             popdatadisplay(dataId);
         }
-        function openModal(id) {
-            // Assuming you're using jQuery to trigger the modal
-            $('#exampleModal').modal('show');
-            $('#dataIdInput').val(id);
-            popdatadisplay(id);
-
-            // You can use id to do further processing if needed
-        }
-
 
         function popdatadisplay(dataId) {
             // alert("hello");
@@ -411,18 +429,10 @@
                                 name: 'lur_interest'
                             },
                             {
-                                data: 'user.name', 
-                                name: 'user.name', 
+                                data: 'lur_user_id',
+                                name: 'lur_user_id',
                                 orderable: false,
-                                searchable: false,
-                                render: function(data, type, row, meta) {
-                                    // Check if 'user' relationship exists and has 'name' attribute
-                                    if(row.user && row.user.name) {
-                                        return row.user.name; // Return the name if available
-                                    } else {
-                                        return ''; // Return empty string if not available
-                                    }
-                                }
+                                searchable: false
                             }
                         ]
                     });

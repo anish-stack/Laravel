@@ -83,6 +83,12 @@ class ProfileController extends Controller
         return view('user.stafflist',compact('data'));
     }
 
+    public function logo()
+    {
+        $data = User::all();
+        return view('user.logo',compact('data'));
+    }
+
     public function staffedit(User $user,$id)
     {
         $item = User::findOrFail($id);
@@ -207,5 +213,67 @@ public function staffdelete(User $user,$id)
         return redirect()->route('stafflist');
 }
 
+public function ownprofile_change(Request $request){
+    $user_id = Auth::user()->id;
+    $userimage=Auth::user()->userimage;
+
+
+    if ($request->hasFile('profile_avatar')) {
+            $request->validate([
+                'profile_avatar' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048'
+            ]);
+            $ext = $request->file('profile_avatar')->extension();
+            $images = 'profile_' . time() . '.' . $ext;
+            $request->file('profile_avatar')->move(storage_path('app/public/profile/'), $images);
+
+            $file = storage_path('/app/public/profile/' . $userimage);
+            if (file_exists($file)) {
+                @unlink($file);
+            }
+        } else {
+            $images = $userimage;
+        }
+        $userData = [
+    'name' => $request->name,
+    'email' => $request->email,
+    'userimage' => $images,
+    'updated_at' => now(),];
+    User::whereId($user_id)->update($userData);
+    // Redirect back or to a specific route
+    return redirect()->route('userprofile');
+    
+}
+
+public function passwordchange(Request $request){
+    // $user_id = Auth::user()->id;   
+        // $userData = [
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'userimage' => $images,
+        //     'updated_at' => now(),];
+        //     User::whereId($user_id)->update($userData);
+        //     // Redirect back or to a specific route
+        //     return redirect()->route('userprofile');
+
+        $request->validate([
+            'password' => 'required',
+        ]);
+
+        // Hash the password
+        $hashedPassword = Hash::make($request->password);
+
+        // Store the password in the database
+        // Replace 'User' with your actual model class
+        // auth()->user()->update([ 
+             $user_id = Auth::user()->id;
+            $userData = [
+            'password' => $hashedPassword,
+            'updated_at' => now(),];
+            User::whereId($user_id)->update($userData);
+
+        // Optionally, you can redirect the user or return a response
+        return redirect()->back()->with('success', 'Password changed successfully!');
+    
+}
 
 }

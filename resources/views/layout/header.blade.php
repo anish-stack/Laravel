@@ -278,26 +278,27 @@
                             <!--begin::Svg Icon | path:assets/media/svg/icons/Code/Compiling.svg-->
                             {{-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                 width="24px" height="24px" viewBox="0 0 24 24" version="1.1"> --}}
-                                {{-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            {{-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <circle cx="8" cy="8" r="10" fill="#ff0000">
                                         <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/>
                                     </circle>
                                     <!-- Text -->
                                     <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="12px" dy=".3em">10</text> --}}
-                                {{-- </svg> --}}
+                            {{-- </svg> --}}
 
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <!-- Main Circle -->
-                                    {{-- <circle cx="12" cy="12" r="10" fill="#ff0000"/> --}}
-                                    {{-- <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="12px" dy=".3em">10</text> --}}
-                                    
-                                    <!-- Blinking Circle -->
-                                    <circle cx="20" cy="4" r="4" fill="#ff0000">
-                                        <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/>
-                                    </circle>
-                                                                    
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <!-- Main Circle -->
+                                {{-- <circle cx="12" cy="12" r="10" fill="#ff0000"/> --}}
+                                {{-- <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="12px" dy=".3em">10</text> --}}
+
+                                <!-- Blinking Circle -->
+                                <circle cx="20" cy="4" r="4" fill="#ff0000">
+                                    <animate attributeName="opacity" values="0;1;0" dur="1s"
+                                        repeatCount="indefinite" />
+                                </circle>
+
 
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <rect x="0" y="0" width="24" height="24" />
@@ -336,12 +337,15 @@
                                         href="#topbar_notifications_events"></a>
                                 </li> --}}
                                 <li class="nav-item">
-                                    <a class="nav-link active show" data-toggle="tab" href="#topbar_notifications_notifications">Notifications Lead <sup id="total_count_lead" style="font-size: 1.5em; color:red;"></sup></a>
+                                    <a class="nav-link active show" data-toggle="tab"
+                                        href="#topbar_notifications_notifications">Notifications Lead <sup
+                                            id="total_count_lead" style="font-size: 1.5em; color:red;"></sup></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#topbar_notifications_events">Notifications Task <sup id="total_count_task" style="font-size: 1.5em; color:red;"></sup></a>
+                                    <a class="nav-link" data-toggle="tab"
+                                        href="#topbar_notifications_events">Notifications Task <sup
+                                            id="total_count_task" style="font-size: 1.5em; color:red;"></sup></a>
                                 </li>
-
                             </ul>
                             <!--end::Tabs-->
                         </div>
@@ -349,8 +353,9 @@
                         <!--begin::Content-->
                         <div class="tab-content">
 
-                             <!--begin::Tabpane-->
-                            <div class="tab-pane active show" id="topbar_notifications_notifications" role="tabpanel">
+                            <!--begin::Tabpane-->
+                            <div class="tab-pane active show" id="topbar_notifications_notifications"
+                                role="tabpanel">
                                 <!--begin::Nav-->
                                 <div class="navi navi-hover scroll my-4" data-scroll="true" data-height="300"
                                     data-mobile-height="200">
@@ -422,10 +427,18 @@
             <div class="dropdown">
                 <!--begin::Toggle-->
                 <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
-                    <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
-                        <img class="h-20px w-20px rounded-sm" src="assets/media/svg/flags/226-united-states.svg"
-                            alt="" />
-                    </div>
+                    @if (Auth::user()->userimage)
+                        <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
+                           <a href="{{ route('userprofile') }}"> <img class="h-20px w-20px rounded-sm"
+                                src="{{ asset('storage/profile/' . Auth::user()->userimage) }}" alt="" /></a>
+                        </div>
+                    @else
+                        <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
+                          <a href="{{ route('userprofile') }}">  <img class="h-20px w-20px rounded-sm"
+                                src="{{ asset('default_img/profile_photo_1714818371.jpg') }}" alt="" /></a>
+                        </div>
+                    @endif
+
                 </div>
                 <!--end::Toggle-->
                 <!--begin::Dropdown-->
@@ -437,7 +450,8 @@
             <div class="topbar-item">
                 <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2"
                     id="kt_quick_user_togge">
-                    <a href="{{ route('userprofile') }}"><span
+                    <a href="{{ route('userprofile') }}" style="text-decoration: none;
+        color: black;"><span
                             class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
                         <span
                             class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">{{ Auth()->user()->name }}</span>
@@ -460,6 +474,8 @@
 <script>
     $(document).ready(function() {
         // Function to make AJAX call
+        var check = 0;
+
         function makeAjaxCall() {
             $.ajax({
                 url: 'tasknotification', // Replace this with your server endpoint
@@ -476,14 +492,15 @@
                     // Update the text of the #total_count element with the total count
                     $('#total_count_task').text(totalCount);
 
-                        if (totalCount > 0) {                           
-                            $('.dropdown').css('display', 'block');
-                        } else {                           
-                            $('.dropdown').css('display', 'none');
-                        }
+                    if (totalCount > 0) {
+                        check = 1;
+                        $('.dropdown').css('display', 'block');
+                    } else {
+                        $('.dropdown').css('display', 'none');
+                    }
                     $.each(response, function(index, item) {
                         var naviItem = $('<a>', {
-                            'href': '{{route('ourtask.index')}}',
+                            'href': '{{ route('ourtask.index') }}',
                             'class': 'navi-item'
                         });
 
@@ -507,7 +524,8 @@
                             }),
                             $('<div>', {
                                 'class': 'text-muted',
-                                'text': item.ot_remark //You can customize this part as needed
+                                'text': item
+                                    .ot_remark //You can customize this part as needed
                             })
                         );
 
@@ -515,9 +533,9 @@
                         naviLink.append(naviIcon, naviText);
                         naviItem.append(naviLink);
                         $('#topbar_notifications_events .navi').append(naviItem);
-                        
+
                     });
-                    
+
                 },
 
 
@@ -535,7 +553,7 @@
         setInterval(makeAjaxCall, 600000);
 
         // for today lead
-         function todaylead() {
+        function todaylead() {
             $.ajax({
                 url: 'leadnotification', // Replace this with your server endpoint
                 type: 'GET', // or 'POST' depending on your server setup
@@ -551,17 +569,18 @@
                     // Update the text of the #total_count element with the total count
                     $('#total_count_lead').text(totalCount);
 
-                        if (totalCount > 0) {                           
-                            $('.dropdown').css('display', 'block');
-                        } else {                           
-                            $('.dropdown').css('display', 'none');
-                        }
+                    if (totalCount > 0) {
+                        $('.dropdown').css('display', 'block');
+                    } else {
+                        $('.dropdown').css('display', 'none');
+                    }
                     $.each(response, function(index, item) {
-                        var laId = item.la_id; // Assuming item.la_id contains the la_id value
+                        var laId = item
+                        .la_id; // Assuming item.la_id contains the la_id value
                         var routeUrl = '{{ route('leadadd.index') }}?la_id=' + laId;
 
                         var naviItem = $('<a>', {
-                            // 'href': '{{route('leadadd.index')}}',
+                            // 'href': '{{ route('leadadd.index') }}',
                             // 'class': 'navi-item'
                             'href': routeUrl,
                             'class': 'navi-item',
@@ -588,7 +607,8 @@
                             }),
                             $('<div>', {
                                 'class': 'text-muted',
-                                'text': item.la_remark //You can customize this part as needed
+                                'text': item
+                                    .la_remark //You can customize this part as needed
                             })
                         );
 
@@ -596,9 +616,9 @@
                         naviLink.append(naviIcon, naviText);
                         naviItem.append(naviLink);
                         $('#topbar_notifications_notifications .navi').append(naviItem);
-                        
+
                     });
-                    
+
                 },
 
 
@@ -615,8 +635,4 @@
         // Set interval to call the function every minute (60 seconds)
         setInterval(todaylead, 600000);
     });
-
-
-
-    
 </script>

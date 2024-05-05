@@ -11,7 +11,7 @@ use Illuminate\Http\JsonResponse;
 
 class LeadController extends \App\Http\Controllers\Controller
 {
-    public function index(Request $request)
+    public function index(Request $request) 
     {
         if ($request->ajax()) {
             // $data = Lead::query();

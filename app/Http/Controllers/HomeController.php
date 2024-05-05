@@ -24,6 +24,10 @@ class HomeController extends Controller
             {
                 return view('welcome');
             }
+            else if($usertype=='staff')
+            {
+                return view('welcome');
+            }
             else{
                 return redirect->back();
             }

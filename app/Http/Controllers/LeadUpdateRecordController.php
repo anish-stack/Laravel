@@ -4,10 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\LeadUpdateRecordController;
-
 use App\Models\LeadUpdateRecord;
 use DataTables;
 use Illuminate\Http\JsonResponse;
+
+// use App\Http\Controllers\LeadAddController;
+use App\Models\LeadAdd;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+// use App\Models\User;
+
+// use App\Models\LeadProjectName;
+// use App\Models\LeadAvailableSize;
+// use App\Models\LeadSourceType; 
+// use App\Models\LeadStatus;
 
 class LeadUpdateRecordController extends Controller
 {
@@ -18,9 +28,8 @@ class LeadUpdateRecordController extends Controller
 
         if ($request->ajax()) {
             
-            $data = LeadUpdateRecord::where('lur_leadadd_id', $dataId)->get();
-
-            
+            $data = LeadUpdateRecord::with('user')->where('lur_leadadd_id', $dataId)->get();
+            // dd($data);
             return response()->json($data); // Return JSON response for AJAX request
         }          
 
@@ -29,7 +38,7 @@ class LeadUpdateRecordController extends Controller
 
      public function store(Request $request): JsonResponse
     {
-        // dd("aacd");
+        $user_id = Auth::user()->id;
          $request->validate([
                 'remark' => 'required', 
                 'status' => 'required', 
@@ -42,7 +51,7 @@ class LeadUpdateRecordController extends Controller
                
             ]
         );
-          
+           
        
         $formData = new LeadUpdateRecord();
         $formData->lur_remark = $request->remark;
@@ -50,9 +59,21 @@ class LeadUpdateRecordController extends Controller
         $formData->lur_meeting_date = $request->date;
         $formData->lur_leadadd_Id = $request->lead_id;   
         $formData->lur_update_date = NOW();
-        $formData->lur_user_id = 1;
+        $formData->lur_user_id = $user_id;;
         $formData->save();
+
+        // update record in lead add tbale
+         $f_dtaa = [
+            'la_remark' => $request->remark,     
+            'la_last_update' => NOW(),     
+            'la_meeting_date' => $request->date
+            ]; 
+            Leadadd::where('la_id',$request->lead_id)->update($f_dtaa);
+         
 
     return response()->json(['success' => true, 'message' => 'Data stored successfully']);
     }
 }
+
+
+
