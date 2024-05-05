@@ -15,14 +15,14 @@
                             <i class="menu-arrow"></i>
                         </a> --}}
 
-                        
+
                         {{-- <div class="mt-3 space-y-1"> --}}
-                            {{-- <x-responsive-nav-link :href="route('profile.edit')">
+                        {{-- <x-responsive-nav-link :href="route('profile.edit')">
                                 {{ __('Profile') }}
                             </x-responsive-nav-link> --}}
 
-                            <!-- Authentication -->
-                            {{-- <form method="POST" action="{{ route('logout') }}">
+                        <!-- Authentication -->
+                        {{-- <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
                                 <x-responsive-nav-link :href="route('logout')"
@@ -34,13 +34,14 @@
                         {{-- </div> --}}
 
 
-						<a href="javascript:;" class="menu-link menu-toggle" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-    <span class="menu-text">Log Out</span>
-</a>
+                        <a href="javascript:;" class="menu-link menu-toggle"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <span class="menu-text">Log Out</span>
+                        </a>
 
-<form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
-    @csrf
-</form>
+                        <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display: none;">
+                            @csrf
+                        </form>
 
 
                         <div class="menu-submenu menu-submenu-classic menu-submenu-left">
@@ -256,7 +257,7 @@
                             </ul>
                         </div>
                     </li>
-                   
+
                 </ul>
                 <!--end::Header Nav-->
             </div>
@@ -266,266 +267,156 @@
         <!--begin::Topbar-->
         <div class="topbar">
             <!--begin::Search-->
-            
+
             <!--end::Search-->
             <!--begin::Notifications-->
-								<div class="dropdown">
-									<!--begin::Toggle-->
-									<div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
-										<div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1 pulse pulse-primary">
-											<span class="svg-icon svg-icon-xl svg-icon-primary">
-												<!--begin::Svg Icon | path:assets/media/svg/icons/Code/Compiling.svg-->
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<rect x="0" y="0" width="24" height="24" />
-														<path d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z" fill="#000000" opacity="0.3" />
-														<path d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z" fill="#000000" />
-													</g>
-												</svg>
-												<!--end::Svg Icon-->
-											</span>
-											<span class="pulse-ring"></span>
-										</div>
-									</div>
-									<!--end::Toggle-->
-									<!--begin::Dropdown-->
-									<div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
-										<form>
-											<!--begin::Header-->
-											<div class="d-flex flex-column pt-12 bgi-size-cover bgi-no-repeat rounded-top" style="background-image: url(media/bg/bg-1.jpg)">
-												<!--begin::Title-->
-												<h4 class="d-flex flex-center rounded-top">
-													<span class="text-white">User Notifications</span>
-													<span class="btn btn-text btn-success btn-sm font-weight-bold btn-font-md ml-2">23 new</span>
-												</h4>
-												<!--end::Title-->
-												<!--begin::Tabs-->
-												<ul class="nav nav-bold nav-tabs nav-tabs-line nav-tabs-line-3x nav-tabs-line-transparent-white nav-tabs-line-active-border-success mt-3 px-8" role="tablist">
-													
-													<li class="nav-item">
-														<a class="nav-link  show" data-toggle="tab" href="#topbar_notifications_events"></a>
-													</li>
-													
-												</ul>
-												<!--end::Tabs-->
-											</div>
-											<!--end::Header-->
-											<!--begin::Content-->
-											<div class="tab-content">
-												<!--begin::Tabpane-->
-												
-												<!--end::Tabpane-->
-												<!--begin::Tabpane-->
-												<div class="tab-pane active show" id="topbar_notifications_events" role="tabpanel">
-													<!--begin::Nav-->
-													<div class="navi navi-hover scroll my-4" data-scroll="true" data-height="300" data-mobile-height="200">
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon2-line-chart text-success"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">New report has been received</div>
-																	<div class="text-muted">23 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon2-paper-plane text-danger"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">Finance report has been generated</div>
-																	<div class="text-muted">25 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon2-user flaticon2-line- text-success"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">New order has been received</div>
-																	<div class="text-muted">2 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon2-pin text-primary"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">New customer is registered</div>
-																	<div class="text-muted">3 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon2-sms text-danger"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">Application has been approved</div>
-																	<div class="text-muted">3 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon2-pie-chart-3 text-warning"></i>
-																</div>
-																<div class="navinavinavi-text">
-																	<div class="font-weight-bold">New file has been uploaded</div>
-																	<div class="text-muted">5 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon-pie-chart-1 text-info"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">New user feedback received</div>
-																	<div class="text-muted">8 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon2-settings text-success"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">System reboot has been successfully completed</div>
-																	<div class="text-muted">12 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon-safe-shield-protection text-primary"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">New order has been placed</div>
-																	<div class="text-muted">15 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon2-notification text-primary"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">Company meeting canceled</div>
-																	<div class="text-muted">19 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon2-fax text-success"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">New report has been received</div>
-																	<div class="text-muted">23 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon-download-1 text-danger"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">Finance report has been generated</div>
-																	<div class="text-muted">25 hrs ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon-security text-warning"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">New customer comment recieved</div>
-																	<div class="text-muted">2 days ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<a href="#" class="navi-item">
-															<div class="navi-link">
-																<div class="navi-icon mr-2">
-																	<i class="flaticon2-analytics-1 text-success"></i>
-																</div>
-																<div class="navi-text">
-																	<div class="font-weight-bold">New customer is registered</div>
-																	<div class="text-muted">3 days ago</div>
-																</div>
-															</div>
-														</a>
-														<!--end::Item-->
-													</div>
-													<!--end::Nav-->
-												</div>
-												<!--end::Tabpane-->
-												<!--begin::Tabpane-->
-												
-												<!--end::Tabpane-->
-											</div>
-											<!--end::Content-->
-										</form>
-									</div>
-									<!--end::Dropdown-->
-								</div>
-								<!--end::Notifications-->
+            <div class="dropdown notification_show" style="display: none">
+                <!--begin::Toggle-->
+                <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
+                    <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1 pulse pulse-primary">
+                        <span class="svg-icon svg-icon-xl svg-icon-primary">
+                            <!--begin::Svg Icon | path:assets/media/svg/icons/Code/Compiling.svg-->
+                            {{-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1"> --}}
+                                {{-- <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <circle cx="8" cy="8" r="10" fill="#ff0000">
+                                        <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/>
+                                    </circle>
+                                    <!-- Text -->
+                                    <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="12px" dy=".3em">10</text> --}}
+                                {{-- </svg> --}}
+
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <!-- Main Circle -->
+                                    {{-- <circle cx="12" cy="12" r="10" fill="#ff0000"/> --}}
+                                    {{-- <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="12px" dy=".3em">10</text> --}}
+                                    
+                                    <!-- Blinking Circle -->
+                                    <circle cx="20" cy="4" r="4" fill="#ff0000">
+                                        <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/>
+                                    </circle>
+                                                                    
+
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24" />
+                                    <path
+                                        d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
+                                        fill="#000000" opacity="0.3" />
+                                    <path
+                                        d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
+                                        fill="#000000" />
+                                </g>
+                            </svg>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="pulse-ring"></span>
+                    </div>
+                </div>
+                <!--end::Toggle-->
+                <!--begin::Dropdown-->
+                <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
+                    <form>
+                        <!--begin::Header-->
+                        <div class="d-flex flex-column pt-12 bgi-size-cover bgi-no-repeat rounded-top"
+                            style="background-image: url(media/bg/bg-1.jpg)">
+                            <!--begin::Title-->
+                            <h4 class="d-flex flex-center rounded-top">
+                                <span class="text-white">Notifications</span>
+                                {{-- <span id="total_count" class="btn btn-text btn-success btn-sm font-weight-bold btn-font-md ml-2"></span> --}}
+                            </h4>
+                            <!--end::Title-->
+                            <!--begin::Tabs-->
+                            <ul class="nav nav-bold nav-tabs nav-tabs-line nav-tabs-line-3x nav-tabs-line-transparent-white nav-tabs-line-active-border-success mt-3 px-8"
+                                role="tablist">
+
+                                {{-- <li class="nav-item">
+                                    <a class="nav-link  show" data-toggle="tab"
+                                        href="#topbar_notifications_events"></a>
+                                </li> --}}
+                                <li class="nav-item">
+                                    <a class="nav-link active show" data-toggle="tab" href="#topbar_notifications_notifications">Notifications Lead <sup id="total_count_lead" style="font-size: 1.5em; color:red;"></sup></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#topbar_notifications_events">Notifications Task <sup id="total_count_task" style="font-size: 1.5em; color:red;"></sup></a>
+                                </li>
+
+                            </ul>
+                            <!--end::Tabs-->
+                        </div>
+                        <!--end::Header-->
+                        <!--begin::Content-->
+                        <div class="tab-content">
+
+                             <!--begin::Tabpane-->
+                            <div class="tab-pane active show" id="topbar_notifications_notifications" role="tabpanel">
+                                <!--begin::Nav-->
+                                <div class="navi navi-hover scroll my-4" data-scroll="true" data-height="300"
+                                    data-mobile-height="200">
+                                    <!--begin::Item-->
+                                    <a href="#" class="navi-item">
+                                        <div class="navi-link">
+                                            <div class="navi-icon mr-2">
+                                                <i class="flaticon2-line-chart text-success"></i>
+                                            </div>
+                                            <div class="navi-text">
+                                                <div class="font-weight-bold"></div>
+                                                <div class="text-muted"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!--end::Item-->
+
+                                </div>
+                                <!--end::Nav-->
+                            </div>
+                            <!--end::Tabpane-->
+
+                            <!--begin::Tabpane-->
+                            <div class="tab-pane " id="topbar_notifications_events" role="tabpanel">
+                                <!--begin::Nav-->
+                                <div class="navi navi-hover scroll my-4" data-scroll="true" data-height="300"
+                                    data-mobile-height="200">
+                                    <!--begin::Item-->
+                                    <a href="#" class="navi-item">
+                                        <div class="navi-link">
+                                            <div class="navi-icon mr-2">
+                                                <i class="flaticon2-line-chart text-success"></i>
+                                            </div>
+                                            <div class="navi-text">
+                                                <div class="font-weight-bold"></div>
+                                                <div class="text-muted"></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!--end::Item-->
+
+                                </div>
+                                <!--end::Nav-->
+                            </div>
+                            <!--end::Tabpane-->
+                            <!--begin::Tabpane-->
+
+                            <!--end::Tabpane-->
+                        </div>
+                        <!--end::Content-->
+                    </form>
+                </div>
+                <!--end::Dropdown-->
+            </div>
+            <!--end::Notifications-->
             <!--begin::Quick Actions-->
-            
+
             <!--end::Quick Actions-->
             <!--begin::Cart-->
-            
+
             <!--end::Cart-->
             <!--begin::Quick panel-->
-            
+
             <!--end::Quick panel-->
             <!--begin::Chat-->
-            
+
             <!--end::Chat-->
             <!--begin::Languages-->
             <div class="dropdown">
@@ -538,7 +429,7 @@
                 </div>
                 <!--end::Toggle-->
                 <!--begin::Dropdown-->
-                
+
                 <!--end::Dropdown-->
             </div>
             <!--end::Languages-->
@@ -565,3 +456,167 @@
     <!--end::Container-->
 </div>
 <!--end::Header-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Function to make AJAX call
+        function makeAjaxCall() {
+            $.ajax({
+                url: 'tasknotification', // Replace this with your server endpoint
+                type: 'GET', // or 'POST' depending on your server setup
+                success: function(response) {
+                    // Handle successful response here
+                    console.log("AJAX call successful");
+                    console.log(response);
+
+                    // Clear the existing content
+                    $('#topbar_notifications_events .navi').empty();
+                    var totalCount = response.length;
+
+                    // Update the text of the #total_count element with the total count
+                    $('#total_count_task').text(totalCount);
+
+                        if (totalCount > 0) {                           
+                            $('.dropdown').css('display', 'block');
+                        } else {                           
+                            $('.dropdown').css('display', 'none');
+                        }
+                    $.each(response, function(index, item) {
+                        var naviItem = $('<a>', {
+                            'href': '{{route('ourtask.index')}}',
+                            'class': 'navi-item'
+                        });
+
+                        var naviLink = $('<div>', {
+                            'class': 'navi-link'
+                        });
+
+                        var naviIcon = $('<div>', {
+                            'class': 'navi-icon mr-2'
+                        }).append($('<i>', {
+                            'class': 'flaticon2-line-chart text-success'
+                        }));
+
+                        var naviText = $('<div>', {
+                            'class': 'navi-text'
+                        }).append(
+                            $('<div>', {
+                                'class': 'font-weight-bold',
+                                'text': item
+                                    .ot_name // Assuming 'ot_name' is the property you want to display
+                            }),
+                            $('<div>', {
+                                'class': 'text-muted',
+                                'text': item.ot_remark //You can customize this part as needed
+                            })
+                        );
+
+                        // Append the elements to the container
+                        naviLink.append(naviIcon, naviText);
+                        naviItem.append(naviLink);
+                        $('#topbar_notifications_events .navi').append(naviItem);
+                        
+                    });
+                    
+                },
+
+
+                error: function(xhr, status, error) {
+                    // Handle error here
+                    console.error("AJAX call error:", error);
+                }
+            });
+        }
+
+        // Call the function immediately when the page loads
+        makeAjaxCall();
+
+        // Set interval to call the function every minute (60 seconds)
+        setInterval(makeAjaxCall, 600000);
+
+        // for today lead
+         function todaylead() {
+            $.ajax({
+                url: 'leadnotification', // Replace this with your server endpoint
+                type: 'GET', // or 'POST' depending on your server setup
+                success: function(response) {
+                    // Handle successful response here
+                    console.log("AJAX call successful");
+                    console.log(response);
+
+                    // Clear the existing content
+                    $('#topbar_notifications_notifications .navi').empty();
+                    var totalCount = response.length;
+
+                    // Update the text of the #total_count element with the total count
+                    $('#total_count_lead').text(totalCount);
+
+                        if (totalCount > 0) {                           
+                            $('.dropdown').css('display', 'block');
+                        } else {                           
+                            $('.dropdown').css('display', 'none');
+                        }
+                    $.each(response, function(index, item) {
+                        var laId = item.la_id; // Assuming item.la_id contains the la_id value
+                        var routeUrl = '{{ route('leadadd.index') }}?la_id=' + laId;
+
+                        var naviItem = $('<a>', {
+                            // 'href': '{{route('leadadd.index')}}',
+                            // 'class': 'navi-item'
+                            'href': routeUrl,
+                            'class': 'navi-item',
+                            'onclick': 'openModal(this)'
+                        });
+
+                        var naviLink = $('<div>', {
+                            'class': 'navi-link'
+                        });
+
+                        var naviIcon = $('<div>', {
+                            'class': 'navi-icon mr-2'
+                        }).append($('<i>', {
+                            'class': 'flaticon2-line-chart text-success'
+                        }));
+
+                        var naviText = $('<div>', {
+                            'class': 'navi-text'
+                        }).append(
+                            $('<div>', {
+                                'class': 'font-weight-bold',
+                                'text': item
+                                    .la_customerNname // Assuming 'ot_name' is the property you want to display
+                            }),
+                            $('<div>', {
+                                'class': 'text-muted',
+                                'text': item.la_remark //You can customize this part as needed
+                            })
+                        );
+
+                        // Append the elements to the container
+                        naviLink.append(naviIcon, naviText);
+                        naviItem.append(naviLink);
+                        $('#topbar_notifications_notifications .navi').append(naviItem);
+                        
+                    });
+                    
+                },
+
+
+                error: function(xhr, status, error) {
+                    // Handle error here
+                    console.error("AJAX call error:", error);
+                }
+            });
+        }
+
+        // Call the function immediately when the page loads
+        todaylead();
+
+        // Set interval to call the function every minute (60 seconds)
+        setInterval(todaylead, 600000);
+    });
+
+
+
+    
+</script>

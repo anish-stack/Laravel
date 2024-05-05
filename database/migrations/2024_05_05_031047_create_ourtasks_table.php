@@ -10,7 +10,7 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
+    { 
         Schema::create('ourtasks', function (Blueprint $table) {
             $table->bigIncrements('ot_id');
             $table->string('ot_name');

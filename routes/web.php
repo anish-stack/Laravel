@@ -17,6 +17,7 @@ use App\Http\Controllers\LeadAvailableSizeController;
 use App\Http\Controllers\LeadProjectNameController;
 use App\Http\Controllers\LeadUpdateRecordController;
 use App\Http\Controllers\OurtaskController;
+use App\Http\Controllers\NotificationController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -48,6 +49,11 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('ourtask', OurtaskController::class);
     Route::post('ourtask/update-status', [OurtaskController::class, 'updateStatus'])->name('ourtask.updateStatus');
+
+     Route::get('tasknotification', [NotificationController::class, 'tasknotification'])->name('tasknotification');
+
+     Route::get('leadnotification', [NotificationController::class, 'leadnotification'])->name('leadnotification');
+
 });
 
 

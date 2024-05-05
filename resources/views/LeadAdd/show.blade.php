@@ -45,7 +45,7 @@
                         <div class="mb-2">
                             <div class="form-group row">
                                 <div class="col-lg-5">
-                                    <input type="hidden" id="dataIdInput" name="lead_id" value="">
+                                    <input type="text" id="dataIdInput" name="lead_id" value="">
                                     <label>Remarks:</label>
                                     <input type="text" class="form-control" name="remark" placeholder=""
                                         value="" />
@@ -76,7 +76,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light-primary font-weight-bold"
-                        data-dismiss="modal">Close</button>
+                        data-dismiss="modal" id="closepop">Close</button>
                     <button type="submit" class="btn btn-primary font-weight-bold">Save changes</button>
                     {{-- <button type="submit" class="btn btn-success mt-2" id="saveBtn" value="create"><i
                             class="fa fa-save"></i> Submit
@@ -280,8 +280,55 @@
 
         });
     </script>
-
     <script>
+        // alert("hel1lo");
+        // openModalz();
+
+        // function openModalz() {
+        //     var urlParams = new URLSearchParams(window.location.search); // Get URL parameters
+        //     var dataId1 = urlParams.get('la_id'); // Get the value of 'la_id' parameter from the URL
+
+        //     // Check if 'la_id' parameter is present
+        //     // alert("hello1");
+        //     if (dataId1) {
+        //         // alert(dataId1); // This alert should work now
+        //         $('#exampleModal').modal('show');
+        //         alert("hello");
+        //         $('#dataIdInput').val(dataId1);
+
+        //         popdatadisplay(dataId1);
+        //         // alert(dataId1); // This alert should work now
+        //     }
+        // }
+
+        $(document).ready(function() {
+            // alert("hh");
+            $('#closepop').click(function() {
+                // Hide the modal
+                $('#exampleModal').modal('hide');
+            });
+            console.log("Document is ready.");
+            openModalz(); // Call the function after the document is ready
+
+            function openModalz() {
+                // console.log("Inside openModalz function.");
+                var urlParams = new URLSearchParams(window.location.search);
+                var dataId1 = urlParams.get('la_id');
+
+                if (dataId1) {
+                    // console.log("la_id parameter found:", dataId1);
+                    // alert("hello");
+                    $('#exampleModal').modal('show');
+                    $('#dataIdInput').val(dataId1);
+                    popdatadisplay(dataId1);
+                    // popdatadisplay(dataId1); // You might need to define this function if it's not defined elsewhere
+                } else {
+                    console.log("la_id parameter not found.");
+                }
+            }
+        });
+
+
         var table;
 
         function openModal(button) {
@@ -291,6 +338,7 @@
         }
 
         function popdatadisplay(dataId) {
+            // alert("hello");
             $.ajax({
                 url: "{{ route('leadpopdata.index') }}",
                 method: "GET",
