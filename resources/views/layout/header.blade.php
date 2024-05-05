@@ -44,7 +44,7 @@
                         </form>
 
 
-                        <div class="menu-submenu menu-submenu-classic menu-submenu-left">
+                        {{-- <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                             <ul class="menu-subnav">
                                 <li class="menu-item menu-item-active" aria-haspopup="true">
                                     <a href="index.html" class="menu-link">
@@ -255,7 +255,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </li>
 
                 </ul>
