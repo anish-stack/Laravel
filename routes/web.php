@@ -16,10 +16,11 @@ use App\Http\Controllers\LeadAddController;
 use App\Http\Controllers\LeadAvailableSizeController;
 use App\Http\Controllers\LeadProjectNameController;
 use App\Http\Controllers\LeadUpdateRecordController;
+use App\Http\Controllers\OurtaskController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 
@@ -44,6 +45,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/staffedit/{id}', [ProfileController::class, 'staffedit'])->name('staffedit');
     Route::post('/updatestaff', [ProfileController::class, 'updatestaff'])->name('updatestaff');
     Route::get('/staffdelete/{id}', [ProfileController::class, 'staffdelete'])->name('staffdelete');
+
+    Route::resource('ourtask', OurtaskController::class);
+    Route::post('ourtask/update-status', [OurtaskController::class, 'updateStatus'])->name('ourtask.updateStatus');
 });
 
 

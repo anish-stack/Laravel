@@ -35,3 +35,5 @@
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="{{ asset('js/pages/widgets.js') }}"></script>
 		<!--end::Page Scripts-->
+
+		<script src="assets/js/pages/crud/forms/widgets/bootstrap-datetimepicker.js"></script>
