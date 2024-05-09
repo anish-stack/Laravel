@@ -1,0 +1,17 @@
+[setup]
+php = "php82.withExtensions (pe: pe.enabled ++ [])"
+nginx = true
+libmysqlclient = true
+composer = true
+nodejs = "18"
+npm = "9_x"
+
+[install]
+composer = "install"
+npm = "install"  # Add this line to install npm packages
+
+[build]
+npm = "run build"
+
+[start]
+php = "artisan serve --host=0.0.0.0 --port=$PORT"
